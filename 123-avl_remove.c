@@ -39,14 +39,12 @@ int next_node(bst_t *node)
 
 	if (node == NULL)
 		return (0);
-	else
-	{
-		left = next_node(node->left);
-		if (left == 0)
-			return (node->n);
 
-		return (left);
-	}
+	left = next_node(node->left);
+	if (left == 0)
+		return (node->n);
+
+	return (left);
 
 }
 
@@ -79,7 +77,6 @@ int remove_type(bst_t *root)
 				root->parent->right = root->right;
 			else
 				root->parent->left = root->right;
-
 			root->right->parent = root->parent;
 		}
 		if (!root->right)
@@ -88,7 +85,6 @@ int remove_type(bst_t *root)
 				root->parent->right = root->left;
 			else
 				root->parent->left = root->left;
-
 			root->left->parent = root->parent;
 		}
 
